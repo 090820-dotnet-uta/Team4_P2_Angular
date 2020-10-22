@@ -1,9 +1,50 @@
-<p>signup works!</p>
-
 <div>
   <form [formGroup]="signUpForm" novalidate>
+
+    <h4> First Name </h4>
+    <input formControlName="firstName" type="text" name="firstName" />
+    <div class = "row">
+      <div style="height: 30px" class="col my-auto">
+      <p *ngIf="signUpForm.controls.firstName.invalid && (signUpForm.dirty || signUpForm.touched)" style="color:red">First Name is required.</p>
+    </div>
+    </div>
+
+    <h4> Last Name </h4>
+    <input formControlName="lastName" type="text" name="lastName" />
+    <div class = "row">
+      <div style="height: 30px" class="col my-auto">
+      <p *ngIf="signUpForm.controls.lastName.invalid && (signUpForm.dirty || signUpForm.touched)" style="color:red">Last Name is required.</p>
+    </div>
+    </div>
+
+    <h4> Gender </h4>
+    <select id="inputType" class="form-control" formControlName="gender">
+      <option>M</option>
+      <option>F</option>
+      <option>Nonbinary</option>
+      <option>Prefer Not To Say</option>
+    </select>
+    <div class = "row">
+      <div style="height: 30px" class="col my-auto">
+      <p *ngIf="signUpForm.controls.gender.invalid && (signUpForm.dirty || signUpForm.touched)" style="color:red">Gender is required.</p>
+    </div>
+    </div>
+
+    <h4>User Name</h4>
     <input formControlName="userName" type="text" name="userName" />
+    <div class = "row">
+      <div style="height: 30px" class="col my-auto">
+      <p *ngIf="signUpForm.controls.userName.invalid && (signUpForm.dirty ||signUpForm.touched)" style="color:red">User Name is required.</p>
+    </div>
+    </div>
+
+    <h4 >Password</h4>
     <input formControlName="password" type="password" name="password" />
+    <div class = "row">
+      <div style="height: 30px" class="col my-auto">
+      <p *ngIf="signUpForm.controls.password.invalid && (signUpForm.dirty ||signUpForm.touched)" style="color:red">Password is required.</p>
+    </div>
+    </div>
 
     <select id="inputType" class="form-control" formControlName="role">
       <option>Student</option>
@@ -11,6 +52,11 @@
       <option>Admin</option>
     </select>
     <button type="submit" (click)="onSubmit()">Sign up</button>
+    <div class = "row">
+      <div style="height: 30px" class="col my-auto">
+      <p *ngIf="signUpForm.controls.role.invalid && (signUpForm.dirty ||signUpForm.touched)" style="color:red">Role is required.</p>
+    </div>
+    </div>
   </form>
 
 

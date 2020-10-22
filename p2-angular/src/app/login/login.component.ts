@@ -21,13 +21,14 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       userName: new FormControl("", [Validators.required, Validators.minLength(3), Validators.maxLength(15)]),
-      password: new FormControl(""),
+      password: new FormControl("", [Validators.required]),
     })
     
   }
 
   onSubmit(): void {
     console.log(this.loginForm.value)
-    console.log(this.loginForm.invalid)
+    console.log(this.loginForm.invalid) 
+    if (this.loginForm.invalid) return;
   }
 }

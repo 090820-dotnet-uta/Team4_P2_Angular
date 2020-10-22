@@ -13,7 +13,17 @@ export class UserService {
   constructor(private httpClient: HttpClient) { }
 
   // Methods
+
+  // getUser(user:User): Observable<User> {
+  //   return this.httpClient.get<User>(`${this.BASE_URL}add`)
+  // }
   addUser(user: User): Observable<User>{
     return this.httpClient.post<User>(`${this.BASE_URL}add`, user);
   }
+
+  login(user: User): Observable<User>{
+    return this.httpClient.post<User>(`${this.BASE_URL}Login`, user);
+  }
+
+  
 }

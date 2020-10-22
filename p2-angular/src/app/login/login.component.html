@@ -1,10 +1,21 @@
-<p>login works!</p>
-
 <div>
   <form [formGroup]="loginForm" novalidate>
+    <h4>User Name</h4>
     <input formControlName = "userName" type ="text" name="userName"/>
+    <div class = "row">
+      <div style="height: 30px" class="col my-auto">
+      <p *ngIf="loginForm.controls.userName.invalid && (loginForm.dirty || loginForm.touched)" style="color:red">User Name is required.</p>
+    </div>
+    </div>
+    
+    <h4>Password</h4>
     <input formControlName = "password" type = "password" name="password"/>
-    <button type = "submit" (click)="onSubmit()">Sign up</button>
+    <div class = "row">
+      <div style="height: 30px" class="col my-auto">
+      <p *ngIf="loginForm.controls.password.invalid && (loginForm.dirty || loginForm.touched)" style="color:red">Password is required.</p>
+    </div>
+    </div>
+    <button type = "submit" (click)="onSubmit()">Login</button>
   </form>
 
   
