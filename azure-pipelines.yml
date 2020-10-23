@@ -7,10 +7,10 @@ trigger:
 - main
 
 variables:
-  appDir: P2-Angular
+  appDir: p2-angular
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'windows-latest'
 
 steps:
 - task: NodeTool@0
