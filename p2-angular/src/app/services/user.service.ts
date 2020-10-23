@@ -8,15 +8,16 @@ import { User } from '../user';
 })
 export class UserService {
 
-  private BASE_URL: string = "https://localhost:5001/api/user/";
+  private BASE_URL: string = "https://p2schoolapi.azurewebsites.net/api/user/";
 
   constructor(private httpClient: HttpClient) { }
 
   // Methods
 
-  // getUser(user:User): Observable<User> {
-  //   return this.httpClient.get<User>(`${this.BASE_URL}add`)
-  // }
+  getUsers(): Observable<User[]> {
+    return this.httpClient.get<User[]>(`${this.BASE_URL}GetAll`)
+  }
+
   addUser(user: User): Observable<User>{
     return this.httpClient.post<User>(`${this.BASE_URL}add`, user);
   }

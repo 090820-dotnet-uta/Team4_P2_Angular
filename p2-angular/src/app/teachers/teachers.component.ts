@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Teacher } from '../teacher';
+import { UserService } from '../services/user.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-teachers',
@@ -7,10 +8,22 @@ import { Teacher } from '../teacher';
   styleUrls: ['./teachers.component.css']
 })
 export class TeachersComponent implements OnInit {
-  teachers: Teacher[];
-  constructor() { }
+  users: User[];
+  constructor(private userService: UserService) {
+    this.userService.getUsers().subscribe((u) => {
+      console.log(u)
+      this.users = u 
+      this.users = this.users.filter (u => {
+        return u.role == 2;
+      })
+      console.log(this.users);
+    });
+    
+   }
 
   ngOnInit(): void {
+     
+    
   }
 
 }
