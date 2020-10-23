@@ -7,10 +7,10 @@ trigger:
 - main
 
 variables:
-  appDir: P2-Angular
+  appDir: p2-angular
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'windows-latest'
 
 steps:
 - task: NodeTool@0
@@ -32,7 +32,7 @@ steps:
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: 'Azure Subscription 1(6fc81904-8f97-4b6e-917d-519941174623)'
+    azureSubscription: 'Azure Subscription 1(8e8a14dc-90f4-43e4-b461-8a39ecbaf1d3)'
     appType: 'webApp'
     WebAppName: 'AngularP2'
     packageForLinux: '$(appDir)/dist/*'
